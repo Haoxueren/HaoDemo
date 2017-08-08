@@ -9,9 +9,17 @@
     tools:context="com.haoxueren.demo.MainActivity"
     tools:ignore="HardcodedText">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:onClick="showDialog"
+        android:text="弹出对话框"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openActivity"
+        android:text="弹出Activity"/>
+
 
 </LinearLayout>
