@@ -16,8 +16,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".lifecycle.LifeCycleActivity"/>
+        <activity android:name=".lifecycle.DialogThemeActivity">
+        </activity>
         <activity
-            android:name=".lifecycle.DialogThemeActivity">
+            android:name=".textview.TextViewActivity"
+            android:label="深入理解TextView">
         </activity>
     </application>
 
