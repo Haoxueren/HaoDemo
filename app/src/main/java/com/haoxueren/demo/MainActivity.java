@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.graphics.ColorUtils;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.haoxueren.demo.glide.GlideDemoActivity;
+import com.haoxueren.demo.retrofit.RetrofitDemoActivity;
+import com.haoxueren.demo.retrofit.RetrofitImageActivity;
 import com.haoxueren.demo.textview.TextViewActivity;
 
 import java.util.ArrayList;
@@ -42,6 +44,11 @@ public class MainActivity extends Activity {
     @NonNull
     private List<HaoDemo> getAdapterData() {
         List<HaoDemo> list = new ArrayList<>();
+        list.add(new HaoDemo("Retrofit使用示例", RetrofitDemoActivity.class));
+        list.add(new HaoDemo("TextView汉字竖直显示", TextViewActivity.class));
+        list.add(new HaoDemo("使用Glide加载网络图片", GlideDemoActivity.class));
+        list.add(new HaoDemo("Retrofit + RecycleView + Glide", RetrofitImageActivity.class));
+        list.add(new HaoDemo("解决RecyclerView异步加载图片错位的问题", null));
         list.add(new HaoDemo("Activity的生命周期", null));
         list.add(new HaoDemo("Fragment的生命周期", null));
         list.add(new HaoDemo("自定义控件", null));
@@ -58,8 +65,28 @@ public class MainActivity extends Activity {
         list.add(new HaoDemo("RecyclerView添加Header和Footer", null));
         list.add(new HaoDemo("RecyclerView拖动排序", null));
         list.add(new HaoDemo("RecyclerView侧滑删除", null));
-        list.add(new HaoDemo("TextView汉字竖直显示", TextViewActivity.class));
-        list.add(new HaoDemo("Retrofit使用示例", null));
+        list.add(new HaoDemo("WebSocket使用研究", null));
+        list.add(new HaoDemo("什么是Restful API", null));
+        list.add(new HaoDemo("Android常用的性能优化工具", null));
+        list.add(new HaoDemo("内在优化及如何避免OOM", null));
+        list.add(new HaoDemo("Android触摸事件的传递机制", null));
+        list.add(new HaoDemo("Android跨进程通信的几种方式", null));
+        list.add(new HaoDemo("Android6.0运行时权限", null));
+        list.add(new HaoDemo("Android7.0新特性", null));
+        list.add(new HaoDemo("Java GC原理", null));
+        list.add(new HaoDemo("Android Handler的原理", null));
+        list.add(new HaoDemo("Android Binder机制原理", null));
+        list.add(new HaoDemo("Gson学习笔记", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("", null));
         list.add(new HaoDemo("", null));
         list.add(new HaoDemo("", null));
         return list;
@@ -67,15 +94,15 @@ public class MainActivity extends Activity {
 
 
     private void initRecyclerView(RecyclerView recyclerView) {
-        // 设置Adapter
-        HaoAdapter adapter = new HaoAdapter(getAdapterData());
-        recyclerView.setAdapter(adapter);
         // 创建LayoutManager
-        int spanCount = 12;
+        int spanCount = 10;
         int orientation = StaggeredGridLayoutManager.HORIZONTAL;
         RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(spanCount, orientation);
         // 设置LayoutManager
         recyclerView.setLayoutManager(layoutManager);
+        // 设置Adapter
+        HaoAdapter adapter = new HaoAdapter(getAdapterData());
+        recyclerView.setAdapter(adapter);
         // 设置条目动画
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // 设置条目分割线
@@ -133,9 +160,9 @@ public class MainActivity extends Activity {
             int green = random.nextInt(256);
             int blue = random.nextInt(256);
             int background = Color.argb(0x66, red, green, blue);
-            int textColor = Color.rgb(256 - red, 256 - green, 256 - blue);
             holder.itemView.setBackgroundColor(background);
-            holder.itemTextView.setTextColor(textColor);
+            // int textColor = Color.rgb(256 - red, 256 - green, 256 - blue);
+            holder.itemTextView.setTextColor(Color.BLACK);
             final HaoDemo haoDemo = list.get(position);
             holder.itemTextView.setText(haoDemo.getTitle());
             // 设置条目点击监听器
@@ -145,6 +172,7 @@ public class MainActivity extends Activity {
                     Class<? extends Activity> clazz = haoDemo.getClazz();
                     if (clazz != null) {
                         Intent intent = new Intent(context, clazz);
+                        intent.putExtra(HaoDemo.TITLE, haoDemo.getTitle());
                         startActivity(intent);
                     }
                 }
@@ -157,4 +185,6 @@ public class MainActivity extends Activity {
             return list.size();
         }
     }
+
+
 }

@@ -7,14 +7,19 @@ import android.app.Activity;
  */
 public class HaoDemo {
 
-    private String title;
+    public static final String TITLE = "HaoDemo.title";
 
-    private Class<? extends Activity> clazz;
+    private String title;// 标题
+
+    private String blog;// 博客地址
+
+    private Class<? extends Activity> clazz;// 演示界面
 
     public HaoDemo(String title, Class<? extends Activity> clazz) {
         this.title = title;
         this.clazz = clazz;
     }
+
 
     public String getTitle() {
         return title;
@@ -22,6 +27,14 @@ public class HaoDemo {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getBlog() {
+        return blog;
+    }
+
+    public void setBlog(String blog) {
+        this.blog = blog;
     }
 
     public Class<? extends Activity> getClazz() {

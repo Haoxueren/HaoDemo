@@ -3,18 +3,15 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:gravity="center"
               android:orientation="vertical"
               tools:ignore="HardcodedText">
 
-    <TextView
-        android:id="@+id/itemTextView"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="RecyclerView"
-        android:textStyle="bold"/>
+        android:adjustViewBounds="true"
+        android:contentDescription="福利图"
+        android:src="@mipmap/image_default"/>
 
 </LinearLayout>
