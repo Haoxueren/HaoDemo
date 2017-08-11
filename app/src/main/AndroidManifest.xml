@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".glide.GlideDemoActivity">
         </activity>
+        <activity android:name=".date.DateFormatActivity">
+        </activity>
     </application>
 
 </manifest>

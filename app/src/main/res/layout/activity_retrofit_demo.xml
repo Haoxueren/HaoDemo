@@ -21,6 +21,12 @@
         android:layout_height="wrap_content"
         android:text="Retrofit POST 请求"/>
 
+    <Button
+        android:id="@+id/converterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retrofit Converter"/>
+
     <TextView
         android:id="@+id/responseTextView"
         android:layout_width="match_parent"

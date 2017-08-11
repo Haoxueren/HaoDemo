@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.haoxueren.demo.date.DateFormatActivity;
 import com.haoxueren.demo.glide.GlideDemoActivity;
 import com.haoxueren.demo.retrofit.RetrofitDemoActivity;
 import com.haoxueren.demo.retrofit.RetrofitImageActivity;
@@ -41,9 +42,11 @@ public class MainActivity extends Activity {
         initRecyclerView(recyclerView);
     }
 
+
     @NonNull
     private List<HaoDemo> getAdapterData() {
         List<HaoDemo> list = new ArrayList<>();
+        list.add(new HaoDemo("使用SimpleDateFormat格式化日期", DateFormatActivity.class));
         list.add(new HaoDemo("Retrofit使用示例", RetrofitDemoActivity.class));
         list.add(new HaoDemo("TextView汉字竖直显示", TextViewActivity.class));
         list.add(new HaoDemo("使用Glide加载网络图片", GlideDemoActivity.class));
@@ -77,9 +80,8 @@ public class MainActivity extends Activity {
         list.add(new HaoDemo("Android Handler的原理", null));
         list.add(new HaoDemo("Android Binder机制原理", null));
         list.add(new HaoDemo("Gson学习笔记", null));
-        list.add(new HaoDemo("", null));
-        list.add(new HaoDemo("", null));
-        list.add(new HaoDemo("", null));
+        list.add(new HaoDemo("深入理解网络图片加载", null));
+        list.add(new HaoDemo("Java的动态代理模式", null));
         list.add(new HaoDemo("", null));
         list.add(new HaoDemo("", null));
         list.add(new HaoDemo("", null));
@@ -127,10 +129,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(View v, int position);
-    }
-
     /**
      * RecyclerView的Adapter需要继承RecyclerView.Adapter<ViewHolder>
      */
@@ -161,7 +159,6 @@ public class MainActivity extends Activity {
             int blue = random.nextInt(256);
             int background = Color.argb(0x66, red, green, blue);
             holder.itemView.setBackgroundColor(background);
-            // int textColor = Color.rgb(256 - red, 256 - green, 256 - blue);
             holder.itemTextView.setTextColor(Color.BLACK);
             final HaoDemo haoDemo = list.get(position);
             holder.itemTextView.setText(haoDemo.getTitle());

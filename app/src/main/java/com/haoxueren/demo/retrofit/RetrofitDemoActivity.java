@@ -18,11 +18,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * 演示Retrofit请求API接口
@@ -37,6 +39,33 @@ public class RetrofitDemoActivity extends Activity {
         setContentView(R.layout.activity_retrofit_demo);
         ButterKnife.bind(this);
     }
+
+
+    public interface MobileService {
+        @GET("http://sj.apidata.cn/")
+        Call<String> getRegion(@Query("mobile") String mobile);
+    }
+
+    @OnClick(R.id.converterButton)
+    public void converter() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://sj.apidata.cn/")
+                .addConverterFactory(ScalarsConverterFactory.create()).build();
+        MobileService mobileService = retrofit.create(MobileService.class);
+        Call<String> call = mobileService.getRegion("13634107840");
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                String body = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
+
 
     /**
      * 添加一行数据
