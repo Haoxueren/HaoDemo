@@ -7,6 +7,11 @@ import android.util.Log;
  */
 public class MyLog {
 
+
+    public static void test() {
+        System.gc();
+    }
+
     /**
      * 输出Info级别的Log信息
      */

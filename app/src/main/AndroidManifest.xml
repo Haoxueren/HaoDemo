@@ -35,6 +35,27 @@
         </activity>
         <activity android:name=".date.DateFormatActivity">
         </activity>
+        <activity android:name=".greendao.HaoNoteActivity">
+        </activity>
+        <activity android:name=".rxjava.RxJavaActivity">
+        </activity>
+        <activity android:name=".flexboxlayout.FlexboxActivity">
+        </activity>
+        <activity android:name=".fastjson.FastJsonActivity"/>
+        <activity android:name=".broadcast.LocalBroadcastManagerActivity">
+        </activity>
+        <activity android:name=".broadcast.BroadcastReceiverActivity">
+        </activity>
+        <activity android:name=".shader.ShaderActivity">
+        </activity>
+        <activity android:name=".shader.FlashActivity">
+        </activity>
+        <activity android:name=".andjump.AndJumpActivity">
+        </activity>
+        <activity android:name=".andjump.TargetActivity">
+        </activity>
+        <activity android:name=".dagger2.DaggerActivity">
+        </activity>
     </application>
 
 </manifest>

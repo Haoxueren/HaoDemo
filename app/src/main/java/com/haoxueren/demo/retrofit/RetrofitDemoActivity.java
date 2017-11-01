@@ -38,6 +38,17 @@ public class RetrofitDemoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit_demo);
         ButterKnife.bind(this);
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.bmob.cn/").build();
+        MatchCount bmobService = retrofit.create(MatchCount.class);
+        Call<ResponseBody> call = bmobService.getMatchCount();
+        enqueueCall(call);
+
+    }
+
+    public interface MatchCount{
+        @GET("http://sportsapi.longzhu.com/sportv2/matchdatelist?leagueId=0&start=2017-09-01&end=2017-12-31")
+        Call<ResponseBody> getMatchCount();
     }
 
 

@@ -11,10 +11,10 @@
         android:id="@+id/itemTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/shape_bg_item"
         android:gravity="center"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="RecyclerView"
-        android:textStyle="bold"/>
+        android:minWidth="60dp"
+        android:padding="10dp"/>
 
 </LinearLayout>
